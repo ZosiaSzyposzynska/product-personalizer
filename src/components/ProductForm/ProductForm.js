@@ -16,8 +16,8 @@ const ProductForm = ({
 }) => {
 
  const handleSubmit = (e) => {
-    e.preventDefault(); // Zapobiega domyślnemu zachowaniu przeglądarki
-    onAddToCart(); // Wywołaj funkcję obsługującą dodanie do koszyka
+    e.preventDefault(); 
+    onAddToCart(); 
   };
 
   return (
