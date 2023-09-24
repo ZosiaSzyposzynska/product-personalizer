@@ -5,8 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: ($base-size * 6) ($base-size * 3);
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
-
+  background: $background-gradient;
   border-radius: $radius;
   box-shadow: $box-shadow;
   padding: ($base-size * 2) $base-size;
@@ -51,10 +50,11 @@
     border: none;
     color: inherit;
     font: inherit;
+    background: $color-dark;
     border-radius: math.div($radius, 2);
     padding: $base-size;
     margin: math.div($base-size, 2.5) $base-size;
-    background: rgba(47, 53, 66, 0.5); 
+    background: rgba(47, 53, 66, 0.5);
     min-width: $base-size * 3;
     min-height: $base-size * 3;
     text-align: center;
@@ -64,7 +64,7 @@
     &.active {
       opacity: 1;
       transform: scale(1.2);
-      background: rgb(47, 53, 66); 
+      background: rgb(47, 53, 66);
     }
 
     &.colorBlack {
@@ -91,11 +91,14 @@
       margin-left: 0;
     }
   }
+
 }
 
-.sizes .choices button:hover {
+.sizes .choices button:hover{
   background: rgb(47, 53, 66);
 }
+
+
 
 .button {
   position: absolute;
