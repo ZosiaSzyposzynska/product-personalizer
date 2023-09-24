@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import styles from '../Product/Product.module.scss';
 
-
 const OptionSize = ({ sizes, currentSize, onSizeChange }) => {
   return (
     <div className={styles.sizes}>
@@ -12,20 +11,26 @@ const OptionSize = ({ sizes, currentSize, onSizeChange }) => {
         {sizes.map((size) => (
           <li key={size.name}>
             <button
-              type="button"
-              onClick={() => onSizeChange(size.name)}
-              className={clsx(styles.sizeButton, {
-                [styles.active]: size.name === currentSize,
-              })}
-            >
-              {size.name}
-            </button>
+  type="button"
+  onClick={() => {
+    console.log("Clicked size button:", size.name);
+    onSizeChange(size.name); 
+  }}
+  className={clsx(styles.sizeButton, {
+    [styles.active]: size.name === currentSize,
+  })}
+>
+  {size.name}
+</button>
           </li>
         ))}
       </ul>
     </div>
   );
 };
+
+
+
 
 OptionSize.propTypes = {
   sizes: PropTypes.arrayOf(
@@ -34,7 +39,7 @@ OptionSize.propTypes = {
       additionalPrice: PropTypes.number.isRequired,
     })
   ).isRequired,
-  
+
 };
 
 export default OptionSize;
