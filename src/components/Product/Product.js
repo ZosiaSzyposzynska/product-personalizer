@@ -9,6 +9,7 @@ const Product = ({
   colors,
   sizes,
   basePrice,
+  
 }) => {
   const [currentColor, setCurrentColor] = useState(colors[0]);
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
@@ -18,6 +19,7 @@ const Product = ({
   };
 
   const handleSizeChange = (size) => {
+    console.log("Selected size:", size);
     setCurrentSize(size);
   };
 
@@ -40,6 +42,8 @@ const Product = ({
     }
   };
 
+
+
   return (
     <article className={styles.product}>
       <ProductImage name={name} title={title} currentColor={currentColor} />
@@ -54,6 +58,8 @@ const Product = ({
           colors={colors}
           sizes={sizes}
           basePrice={basePrice}
+          currentSize={currentSize}
+          currentColor={currentColor}
           onSizeChange={handleSizeChange}
           onColorChange={handleColorChange}
           onAddToCart={handleAddToCart}
