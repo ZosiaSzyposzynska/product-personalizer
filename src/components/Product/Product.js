@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductForm from '../ProductForm/ProductForm';
 import styles from './Product.module.scss';
+import { useMemo } from 'react';
 
 const Product = ({
   name,
@@ -26,12 +27,12 @@ const Product = ({
   const handleAddToCart = () => {
     console.log("Product added to cart:");
     console.log("Name:", name);
-    console.log("Price:", getPrice());
+    console.log("Price:", price);
     console.log("Color:", currentColor);
     console.log("Size:", currentSize);
   };
 
-  const getPrice = () => {
+  const price = useMemo(() => {
     const selectedSize = sizes.find((size) => size.name === currentSize);
 
     if (selectedSize) {
@@ -40,8 +41,7 @@ const Product = ({
     } else {
       return basePrice;
     }
-  };
-
+  }, [sizes, currentSize, basePrice]);
 
 
   return (
@@ -50,7 +50,7 @@ const Product = ({
       <div>
         <header>
           <h2 className={styles.name}>{name}</h2>
-          <span className={styles.price}>Price: {getPrice()}$</span>
+          <span className={styles.price}>Price: {price}$</span>
         </header>
         <ProductForm
           name={name} 
